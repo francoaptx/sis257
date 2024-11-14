@@ -8,6 +8,7 @@ import { GenerosModule } from './generos/generos.module';
 import { AlbumesModule } from './albumes/albumes.module';
 import { CancionesModule } from './canciones/canciones.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -22,12 +23,14 @@ import { UsuariosModule } from './usuarios/usuarios.module';
       entities: [__dirname + '*/**/entities/*.{ts|js}'],
       synchronize: true,
       autoLoadEntities: true,
+      ssl: { rejectUnauthorized: false },
     }),
     InterpretesModule,
     GenerosModule,
     AlbumesModule,
     CancionesModule,
     UsuariosModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
